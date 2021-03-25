@@ -24,11 +24,11 @@
       let x;
       function change(x) {
         if (x==0){
-          document.getElementById('image-360').environment = 'preset: forest; groundColor: #445; grid: cross';
+          document.getElementById('image-360').setAttribute("environment", 'preset: forest; groundColor: #445; grid: cross');
           
         }
         if (x==1){
-          document.getElementById('image-360').environment = 'preset: egypt; groundColor: #445; grid: cross';
+          document.getElementById('image-360').setAttribute("environment", 'preset: egypt; groundColor: #445; grid: cross');
         }
         if (x==2){
           document.getElementById('image-360').setAttribute("environment", 'preset: contact; groundColor: #445; grid: cross');
@@ -46,24 +46,21 @@
 
       </a-assets>
 
-      <a-entity id="image-360" environment="preset: forest; groundColor: #445; grid: cross"></a-entity>
-
       <!-- 360-degree image. -->
-     
+     <a-entity id="image-360" environment="preset: forest;"
+      
+      ></a-entity>
 
       <!-- Image links. -->
       <a-entity id="links" layout="type: line; margin: 1.5" position="0 -1 -4">
         <a-entity
         onclick="change(0)"
-        material="color: #00D1B2" 
         template="src: #link">test</a-entity>
         <a-entity
         onclick="change(1)"
-        material="color: #23C495" 
         template="src: #link">test</a-entity>
         <a-entity
         onclick="change(2)"
-        material="color: #2C8968" 
         template="src: #link">test</a-entity>
       </a-entity>
 
