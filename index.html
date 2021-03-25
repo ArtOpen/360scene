@@ -24,14 +24,14 @@
       let x;
       function change(x) {
         if (x==0){
-          document.getElementById('image-360').setAttribute("environment", 'preset: forest; groundColor: #445; grid: cross');
+          document.getElementById('image-360').setAttribute("environment", 'preset: egypt; dressingAmount: 30; dressing: pyramids; groundColor: #445; grid: cross;  fog:0.3');
           
         }
         if (x==1){
-          document.getElementById('image-360').setAttribute("environment", 'preset: egypt; groundColor: #445; grid: cross');
+          document.getElementById('image-360').setAttribute("environment", 'preset: yavapai; dressingAmount: 70; dressing: stones; groundColor: #445; grid: cross;  fog:0.3');
         }
         if (x==2){
-          document.getElementById('image-360').setAttribute("environment", 'preset: contact; groundColor: #445; grid: cross');
+          document.getElementById('image-360').setAttribute("environment", 'preset: forest; dressingAmount: 100; dressing: trees; groundColor: #445; grid: cross;  fog:0.3');
         }
         console.log('done');
       }
@@ -44,7 +44,7 @@
     </a-assets>
       
         
-       <a-entity id="image-360"  seed="2" environment="preset: starry; groundColor: #000;  gridColor: #000; fog:0.3" visible="false">
+       <a-entity id="image-360"  seed="2" environment="preset: forest; dressingAmount: 100; dressing: trees; groundColor: #445; grid: cross; fog:0.3" visible="false">
       
       <!-- Image links. -->
       <a-entity id="links" layout="type: line; margin: 1.5" position="0 3 -4">
@@ -60,7 +60,7 @@
       </a-entity>
 
       <!-- Camera + cursor. -->
-      <a-entity position="0 2 0" camera wasd-controls fly="true" look-controls>
+      <a-entity position="0 3 2" camera wasd-controls fly="true" look-controls>
         <a-cursor
           id="cursor"
           animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150"
