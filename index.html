@@ -9,15 +9,32 @@
     <script src="https://unpkg.com/aframe-layout-component@5.3.0/dist/aframe-layout-component.min.js"></script>
     <script src="https://unpkg.com/aframe-template-component@3.2.1/dist/aframe-template-component.min.js"></script>
     <script src="https://unpkg.com/aframe-proxy-event-component@2.1.0/dist/aframe-proxy-event-component.min.js"></script>
-    
+    <script src="https://unpkg.com/aframe-environment-component@1.2.0/dist/aframe-environment-component.min.js"></script>
+
     <!-- Image link template to be reused. -->
     <script id="link" type="text/html">
       <a-entity class="link"
         geometry="primitive: plane; height: 1; width: 1"
         event-set__mouseenter="scale: 1.2 1.2 1"
         event-set__mouseleave="scale: 1 1 1"
-        proxy-event="event: click; to: #image-360; as: fade"
         sound="on: click; src: #click-sound"></a-entity>
+    </script>
+    
+    <script>
+      let x;
+      function change(x) {
+        if (x==0){
+          document.getElementById('image-360').environment = 'preset: forest; groundColor: #445; grid: cross';
+          
+        }
+        if (x==1){
+          document.getElementById('image-360').environment = 'preset: egypt; groundColor: #445; grid: cross';
+        }
+        if (x==2){
+          document.getElementById('image-360').setAttribute("environment", 'preset: contact; groundColor: #445; grid: cross');
+        }
+        console.log('done');
+      }
     </script>
   </head>
   <body>
@@ -29,24 +46,24 @@
 
       </a-assets>
 
-      <a-entity id="image-360" environment="preset: forest; groundColor: #445; grid: cross"
-                animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
-             animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade"
-                ></a-entity>
+      <a-entity id="image-360" environment="preset: forest; groundColor: #445; grid: cross"></a-entity>
 
       <!-- 360-degree image. -->
      
 
       <!-- Image links. -->
       <a-entity id="links" layout="type: line; margin: 1.5" position="0 -1 -4">
-        <a-entity 
-        material="color:" 
+        <a-entity
+        onclick="change(0)"
+        material="color: #00D1B2" 
         template="src: #link">test</a-entity>
-        <a-entity 
-        material="color:" 
+        <a-entity
+        onclick="change(1)"
+        material="color: #23C495" 
         template="src: #link">test</a-entity>
-        <a-entity 
-        material="color:" 
+        <a-entity
+        onclick="change(2)"
+        material="color: #2C8968" 
         template="src: #link">test</a-entity>
       </a-entity>
 
