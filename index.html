@@ -38,19 +38,10 @@
     </script>
   </head>
   <body>
-    <a-scene>
-      <a-assets>
-              
+    <a-scene id="image-360" environment="preset: forest;">
+     <a-assets>
         <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
-        
-
-      </a-assets>
-
-      <!-- 360-degree image. -->
-     <a-entity id="image-360" environment="preset: forest;"
-      
-      ></a-entity>
-
+    </a-assets>
       <!-- Image links. -->
       <a-entity id="links" layout="type: line; margin: 1.5" position="0 -1 -4">
         <a-entity
