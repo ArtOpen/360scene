@@ -1,0 +1,96 @@
+<html>
+  <head>
+    
+    
+    <title>Art Open VR</title>
+    <meta charset="utf-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="shortcut icon" type="image/png" href="https://cdn.glitch.com/827e5e49-9c15-4838-90ce-0134932232e4%2Flogo.png?v=1583452202675"/>
+
+    <!-- SETUP SCRIPTS -->
+
+    <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component@1.2.0/dist/aframe-environment-component.min.js"></script>
+  
+    
+
+    
+  </head>
+  
+  <!-- START OF PROGRAM -->
+  
+  <body>
+    
+    
+    
+    
+    <a-scene inspector="" keyboard-shortcuts="" screenshot="" vr-mode-ui="" fog="color: #070707; far: 24; density: 0.7">
+
+
+          
+        <!-- basic settings light, camera, enviroment preset etc. 
+
+Enviroment Setup:
+
+Enviroments to choose:
+Valid values: none, default, contact, egypt, checkerboard, forest, 
+goaland, yavapai, goldmine, threetowers, poison, arches, tron, 
+japan, dream, volcano, starry, osiris
+
+grid: 2x2;
+seed="2"
+-->
+      
+        <a-sky src="#skyTexture"></a-sky>
+        <a-light type="ambient" color="#FFF" light=""></a-light>
+        <a-light type="point" animation="property: object3D.position.y; to: 15.2; dir: alternate; dur: 5000; loop: 1000; from: 2; isRawProperty: false" color="#FFF" intensity="0.2" position="2 4 4" light=""></a-light>
+        <a-entity seed="2" environment="preset: starry; dressing: 100; groundColor: #000;  gridColor: #000; fog:0.3" visible="true">
+        <a-entity class="environment" position="0 50 0" light="type: hemisphere; color: #000; intensity: 0.6; groundColor: #000" visible=""></a-entity>
+        <a-entity id="mouseCursor" raycaster="direction: 0.4673763601191577 -0.5885125858984966 0.6597062029728324; origin: -3.544463526293012 284.2447102745616 -297.65624392492595" cursor="rayOrigin: mouse"></a-entity>
+        <a-entity camera="" position="0 50 250" wasd-controls="acceleration:1500; fly:true" rotation="0 0 0" look-controls="" aframe-injected=""></a-entity>
+
+          <!--bottom -->
+          
+          <a-entity geometry="primitive: box; width: 200; height: 200; depth: 200"
+          position="0 -100 0"
+          material="color: #000000; opacity: 0.9; wireframe: false"
+          rotation="0 0 0">
+          </a-entity>
+          
+        
+      
+          
+          
+          
+      
+      </a-entity>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <!-- preloader -->
+      
+      <div class="a-loader-title" style="display: none;"></div>
+      
+    </a-scene>
+    
+    
+  </body>
+  
+</html>
