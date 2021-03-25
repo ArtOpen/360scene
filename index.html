@@ -10,16 +10,12 @@
     <script src="https://unpkg.com/aframe-template-component@3.2.1/dist/aframe-template-component.min.js"></script>
     <script src="https://unpkg.com/aframe-proxy-event-component@2.1.0/dist/aframe-proxy-event-component.min.js"></script>
     
-    <script src="https://unpkg.com/aframe-environment-component@1.2.0/dist/aframe-environment-component.min.js"></script>
-
     <!-- Image link template to be reused. -->
     <script id="link" type="text/html">
       <a-entity class="link"
         geometry="primitive: plane; height: 1; width: 1"
-        material="shader: flat; src: ${thumb}"
         event-set__mouseenter="scale: 1.2 1.2 1"
         event-set__mouseleave="scale: 1 1 1"
-        event-set__click="_target: #image-360; _delay: 300; material.src: ${src}"
         proxy-event="event: click; to: #image-360; as: fade"
         sound="on: click; src: #click-sound"></a-entity>
     </script>
@@ -29,20 +25,29 @@
       <a-assets>
               
         <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
-      
+        
 
       </a-assets>
 
-      
-      <a-entity environment="preset: forest; groundColor: #445; grid: cross"></a-entity>
+      <a-entity id="image-360" environment="preset: forest; groundColor: #445; grid: cross"
+                animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
+             animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade"
+                ></a-entity>
 
+      <!-- 360-degree image. -->
+     
 
-      
       <!-- Image links. -->
       <a-entity id="links" layout="type: line; margin: 1.5" position="0 -1 -4">
-        <a-entity template="src: #link" data-src="#cubes" data-thumb="">test</a-entity>
-        <a-entity template="src: #link" data-src="#city" data-thumb="">test</a-entity>
-        <a-entity template="src: #link" data-src="#sechelt" data-thumb="">test</a-entity>
+        <a-entity 
+        material="color:" 
+        template="src: #link">test</a-entity>
+        <a-entity 
+        material="color:" 
+        template="src: #link">test</a-entity>
+        <a-entity 
+        material="color:" 
+        template="src: #link">test</a-entity>
       </a-entity>
 
       <!-- Camera + cursor. -->
