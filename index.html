@@ -10,6 +10,8 @@
     <script src="https://unpkg.com/aframe-template-component@3.2.1/dist/aframe-template-component.min.js"></script>
     <script src="https://unpkg.com/aframe-proxy-event-component@2.1.0/dist/aframe-proxy-event-component.min.js"></script>
     
+    <script src="https://unpkg.com/aframe-environment-component@1.2.0/dist/aframe-environment-component.min.js"></script>
+
     <!-- Image link template to be reused. -->
     <script id="link" type="text/html">
       <a-entity class="link"
@@ -27,17 +29,15 @@
       <a-assets>
               
         <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
-        <img id="cubes" crossorigin="anonymous" src="https://cdn.glitch.com/cadd701b-dc87-4c9a-a5ab-d221bd89a128%2Fx11.jpg?v=1616602453264">
-        <img id="sechelt" crossorigin="anonymous" src="https://cdn.glitch.com/cadd701b-dc87-4c9a-a5ab-d221bd89a128%2Fx31.jpg?v=1616602449501">
-        <img id="city" crossorigin="anonymous" src="https://cdn.glitch.com/cadd701b-dc87-4c9a-a5ab-d221bd89a128%2Fx21.jpg?v=1616602449699">
+      
 
       </a-assets>
 
-      <!-- 360-degree image. -->
-      <a-sky id="image-360" radius="10" src="#city"
-             animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
-             animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade"></a-sky>
+      
+      <a-entity environment="preset: forest; groundColor: #445; grid: cross"></a-entity>
 
+
+      
       <!-- Image links. -->
       <a-entity id="links" layout="type: line; margin: 1.5" position="0 -1 -4">
         <a-entity template="src: #link" data-src="#cubes" data-thumb="">test</a-entity>
